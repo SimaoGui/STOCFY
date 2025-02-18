@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+
+import { useNavigate } from 'react-router-dom';
 import "../styles/global.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  localStorage.setItem("email", email);
+  const [role, setRole] = useState(1);
+  const navigate = useNavigate(); 
 
   
   useEffect(() => {
@@ -42,11 +47,77 @@ const Login = () => {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("Email:", email);
+    
+    try {
+      console.log(JSON.stringify({
+        email: email,
+        senha: password,
+      }));
+
+      const response = await fetch("http://18.222.182.82:80/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          senha: password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Login bem-sucedido:", data);
+        navigate("/home")
+        
+      } else {
+        console.error("Erro ao fazer login:", data.message);
+      };
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+    };
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const payload = JSON.stringify({
+        nome: username,
+        email: email,
+        senha: password,
+        id_tpclient: role, // Já está como número
+      });
+      console.log(payload);
+      
+      const response = await fetch("http://18.222.182.82:80/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: username,
+          email: email,
+          senha: password,
+          id_tpcliente: role,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Registro bem-sucedido:", data);
+        navigate("/verify")
+        
+      } else {
+        console.error("Erro ao fazer login:", data.message);
+      };
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+    };
   };
 
   return (
@@ -57,22 +128,24 @@ const Login = () => {
       
       <div className="form-box login">
         <h2 className="animation" style={{ "--i": 0, "--j": 21 }}>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-box animation" style={{ "--i": 1, "--j": 22 }}>
+        <form onSubmit={handleLogin}>
+        <div className="input-box animation" style={{ "--i": 1, "--j": 22 }}>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="new-password"
               required
             />
-            <label>Username</label>
-            <i className="bx bxs-user"></i>
+            <label>E-mail</label>
+            <i className="bx bxs-envelope"></i>
           </div>
           <div className="input-box animation" style={{ "--i": 2, "--j": 23}}>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
               required
             />
             <label>Password</label>
@@ -95,15 +168,16 @@ const Login = () => {
       
       <div className="form-box register">
         <h2 className="animation" style={{ "--i": 17, "--j": 0 }}>Registrar</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleRegister}>
           <div className="input-box animation" style={{ "--i": 18, "--j": 1 }}>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              autoComplete="new-password"
               required
             />
-            <label>Username</label>
+            <label>Nome</label>
             <i className="bx bxs-user"></i>
           </div>
           <div className="input-box animation" style={{ "--i": 19, "--j": 2 }}>
@@ -111,6 +185,7 @@ const Login = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="new-password"
               required
             />
             <label>E-mail</label>
@@ -121,13 +196,36 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password"
               required
             />
             <label>Password</label>
             <i className="bx bxs-lock-alt"></i>
           </div>
-          <button type="submit" className="btn animation" style={{ "--i": 21, "--j": 4 }}>Registrar-se</button>
-          <div className="login-link-div animation" style={{ "--i": 22, "--j": 5 }}>
+          <div className="input-boxR animation" style={{ "--i": 21, "--j": 4 }}>
+            <label>
+              <input
+                type="radio"
+                name="role"
+                value="1"
+                checked={role === 1}
+                onChange={(e) => setRole(Number(e.target.value))}
+              />
+              <span>Fornecedor</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="role"
+                value="2"
+                checked={role === 2}
+                onChange={(e) => setRole(Number(e.target.value))}
+              />
+              <span>Revendedor</span>
+            </label>
+          </div>
+          <button type="submit" className="btn animation" style={{ "--i": 22, "--j": 5 }}>Registrar-se</button>
+          <div className="login-link-div animation" style={{ "--i": 23, "--j": 5 }}>
             <p>
               Já tem uma conta?{" "}
               <a href="#" className="login-link">Login</a>
