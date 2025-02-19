@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { useNavigate } from 'react-router-dom';
-import "../styles/global.css";
+import styles from "../styles/global.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -56,7 +56,7 @@ const Login = () => {
         senha: password,
       }));
 
-      const response = await fetch("http://18.222.182.82:80/login", {
+      const response = await fetch("https://app.stocfy.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const Login = () => {
 
       if (response.ok) {
         console.log("Login bem-sucedido:", data);
-        navigate("/home")
+        navigate("/listagem")
         
       } else {
         console.error("Erro ao fazer login:", data.message);
@@ -93,7 +93,7 @@ const Login = () => {
       });
       console.log(payload);
       
-      const response = await fetch("http://18.222.182.82:80/register", {
+      const response = await fetch("https://app.stocfy.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,0 +1,150 @@
+/* global.css */
+body {
+    background-color: #003049 !important; /* Azul pastel escuro */
+    color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+  }
+
+.containerList {
+    min-width: 750px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #004f59;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .topDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  i {
+    margin-right: 6px;
+  }
+
+  .addButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00ff87;
+    max-height: 40px;
+    text-align: center;
+    width:50%;
+    color: #004f59;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    transition: all 0.4s ease;
+    box-shadow: 0 0px 4px #00ff87;
+  }
+  
+  .addButton:hover {
+    box-shadow: 0 0px 12px #00ff87;
+    background: #00e67e;
+    transform: scale(1.05);
+  }
+  
+  .searchDiv {
+    display: flex;
+    align-items: center;
+    background: #003b42;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .searchInput {
+    width: 100%;
+    border: none;
+    background: none;
+    color: #f6f6f6;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: #00424a;
+    color: #f6f6f6;
+    border-radius: 8px;
+    overflow: visible !important;
+    position: relative;
+  }
+  
+  .tabela th, .tabela td {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .tabela td {
+    overflow: visible !important;
+  }
+  
+  .tabela th {
+    background: #002c31;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #00ff87;
+  }
+
+  .selectedRow {
+    background: #00646e !important;
+  }
+  
+  .menuButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f6f6f6;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #004f59;
+    border: 1px solid #00ff87;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdownMenu button {
+    background: none;
+    border: none;
+    color: #f6f6f6;
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: all .2s ease;
+    text-align: center;
+  }
+  
+  .dropdownMenu .EditarBtn:hover {
+    background: #FFB74D;
+    color: #004f59;
+  }
+
+  .dropdownMenu .RemoverBtn:hover {
+    background: #e04747;
+    color: #004f59;
+  }
+  
