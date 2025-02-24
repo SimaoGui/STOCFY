@@ -64,6 +64,7 @@ body {
                 height: 70%;
                 background: transparent;
                 border: 2px solid #00ff87;
+                border-radius: 4px;
                 outline: none;
                 box-shadow: 0 0px 8px #00ff87;
                 color: #00ff87;

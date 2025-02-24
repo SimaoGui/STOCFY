@@ -1,0 +1,296 @@
+body {
+    background-color: #003049 !important; /* Azul pastel escuro */
+    color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+  }
+
+.containerList {
+    min-width: 750px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #004f59;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .topDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+#icon1 {
+    font-size: 20px;
+    margin-right: 10px;
+    transition: all .3s ease;
+  }
+
+  .addButton {
+    position: relative;
+    width: 50%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #00ff87;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #f6f6f6;
+    font-weight: 600;
+    z-index: 1;
+    transition: 0.5s;
+    overflow: hidden;
+
+    &:hover::before {
+        top: 0;
+        transition: 0.5s;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 300%;
+        left: 0;
+        top: -100%;
+        z-index: -1;
+        background: linear-gradient(#004f59, #00ff87, #004f59, #00ff87);
+        transition: 0.5s;
+        }
+    }
+  
+  .searchDiv {
+    display: flex;
+    align-items: center;
+    background: #003b42;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .searchInput {
+    width: 100%;
+    border: none;
+    background: none;
+    color: #f6f6f6;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: #00424a;
+    color: #f6f6f6;
+    border-radius: 8px;
+    overflow: visible !important;
+    position: relative;
+  }
+  
+  .tabela th, .tabela td {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .tabela td {
+    overflow: visible !important;
+  }
+  
+  .tabela th {
+    background: #002c31;
+    font-weight: bold;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .checkbox {
+    padding: 2px;
+    margin: 2px;
+    width: 18px;
+    height: 18px;
+    accent-color: #00ff87;
+  }
+
+  .selectedRow {
+    background: #00646e !important;
+  }
+  
+  .menuButton {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f6f6f6;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #004f59;
+    border: 1px solid #00ff87;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  
+  .dropdownMenu button {
+    background: none;
+    border: none;
+    color: #f6f6f6;
+    padding: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: all .2s ease;
+    text-align: center;
+  }
+  
+  .dropdownMenu .EditarBtn:hover {
+    background: #FFB74D;
+    color: #004f59;
+  }
+
+  .dropdownMenu .RemoverBtn:hover {
+    background: #e04747;
+    color: #004f59;
+  }
+  
+  .Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(255, 65, 65);
+  }
+  
+  .sign {
+    width: 100%;
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: all .3s ease;
+  }
+  
+  .Btn:hover {
+    width: 125px;
+    border-radius: 40px;
+    transition-duration: .3s;
+    box-shadow: 0 0px 12px rgb(255, 65, 65);
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+  
+  #icon1:hover {
+    color: #00e67e;
+    cursor: pointer;
+    transform: scale(1.25);
+  }
+
+  @media screen and (max-width: 768px) {
+    .containerList {
+      min-width: auto;
+      width: 95%;
+      max-width: 100%;
+      padding: 10px;
+      margin: 10px auto;
+    }
+  
+    .searchDiv {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px;
+    }
+  
+    .searchInput {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  
+    .addButton {
+      width: 100%;
+      margin-bottom: 10px;
+      height: 45px;
+      font-size: 16px;
+    }
+  
+    .tabela {
+      font-size: 14px;
+      overflow-x: auto;
+    }
+  
+    .tabela th,
+    .tabela td {
+      padding: 8px;
+      text-align: center;
+    }
+  
+    .tableDiv {
+      overflow-x: auto;
+    }
+  
+    .Btn {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .text {
+      font-size: 0.9em;
+    }
+  
+    /* Ajusta a posição do dropdown se necessário */
+    .dropdownMenu {
+      top: 35px;
+      right: 0;
+    }
+  }

@@ -12,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-width: 100vw;
     background: #004f59;
 
     & .wrapper {
@@ -372,4 +373,176 @@ body {
 
 .wrapper.active .info-text.register {
     pointer-events: auto;
+}
+
+.mobile{
+    display: none;
+  }
+
+  .texto-info {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .wrapper {
+        display: none;
+    }
+
+    .mobile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: #004f59;
+        max-height: 540px;
+        max-width: 768px;
+        width: 75%;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 2px solid #00ff87;
+        box-shadow: 0px 0px 12px #00ff87;
+      }
+    
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 32px;
+        
+      }
+    
+      /*checkbox to switch from sign up to login*/
+      #chk {
+        display: none;
+      }
+    
+      .login {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    
+      .login label {
+        margin: 5% 0 5%;
+      }
+    
+      label {
+        color: #f6f6f6;
+        text-shadow: 2px 2px 5px #00ff87;
+        font-size: 4rem;
+        justify-content: center;
+        display: flex;
+        font-weight: bold;
+        cursor: pointer;
+        transition: .6s ease-in-out;
+        text-transform: uppercase;
+      }
+    
+      .input {
+        width: 100%;
+        height: 52px;
+        background: #f6f6f6;
+        padding: 12px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        border: 1px solid #00ff87;
+      }
+
+      input::placeholder {
+        font-size: 1rem;
+      }
+    
+      .register {
+        background: #00424a;
+        border-radius: 40px 40px 0 0;
+        transform: translateY(5%);
+        transition: .8s ease-in-out;
+      }
+    
+      .register label {
+        color: #00ff87;
+        text-shadow: 2px 2px 5px #f6f6f6;
+        transform: scale(.5);
+      }
+    
+      #chk:checked ~ .register {
+        transform: translateY(-65%);
+      }
+    
+      #chk:checked ~ .register label {
+        transform: scale(.75);
+      }
+    
+      #chk:checked ~ .login label {
+        margin-top: 0px;
+        margin-bottom: 2rem;
+        transform: translateY(-10%) scale(.6) ;
+      }
+      
+
+      /*Button*/
+      .form button {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 12px;
+        color: #fff;
+        background: #004f59;
+        font-size: 1.25rem;
+        font-weight: bold;
+        border: 2px solid #00ff87;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: .2s ease;
+        text-transform: uppercase;
+      }
+    
+      .form button:hover {
+        background-color: #00ff87;
+        box-shadow: 0px 0px 4px #00ff87;
+        transform: scale(1.05);
+      }    
+
+      .texto-info {
+        width: 100%;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+        overflow: hidden;
+      }
+
+      & h2 {
+        font-size: 32px;
+        color: #00ff87;
+        line-height: 1.3;
+        text-transform: uppercase;
+
+        }
+
+
+    & p {
+        font-size: 16px;
+        color: #f6f6f6;
+        text-align: center;
+        } 
+
 }

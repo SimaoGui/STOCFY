@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../styles/verify.css";
 
+
 const Verify = () => {
     const email = localStorage.getItem("email");
     const navigate = useNavigate(); 
@@ -45,7 +46,7 @@ const Verify = () => {
   }, []);
 
   const handleVerify = async (e) => {
-    e.preventDefault(); // Impede o comportamento padrão do formulário
+    e.preventDefault();
 
     const inputs = document.querySelectorAll(".code");
     let verificationCode = "";
@@ -62,7 +63,7 @@ const Verify = () => {
     console.log("Código de verificação:", verificationCode);
 
     try {
-        const response = await fetch("http://18.222.182.82:80/verificar_codigo", {
+        const response = await fetch("https//app.stocfy.com//verificar_codigo", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -73,6 +74,7 @@ const Verify = () => {
           console.log("Resposta da verificação:", data);
           if (response.ok) {
             console.log("Registro bem-sucedido:", data);
+            alert("Email verificado com sucesso!")
             navigate("/login")
           } else {
             console.error("Erro ao fazer login:", data.message);
