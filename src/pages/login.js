@@ -80,11 +80,12 @@ const Login = () => {
 
       if (response.ok) {
         console.log("Login bem-sucedido:", data);
-        navigate("/listagem")
-        
-      } else {
-        console.error("Erro ao fazer login:", data.message);
-      };
+        sessionStorage.setItem("auth", "true"); // Salva a autenticação
+        navigate("/listagem");
+    } else {
+        console.log("Erro no login");
+    }
+    
     } catch (error) {
       console.error("Erro na requisição:", error);
     };

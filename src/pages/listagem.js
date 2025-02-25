@@ -15,6 +15,7 @@ const TabelaProdutos = () => {
   };
 
   const adicionarProduto = () => {
+    sessionStorage.setItem("auth", true);
     navigate("/adicionarProduto");
   };
 

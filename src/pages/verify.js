@@ -63,7 +63,7 @@ const Verify = () => {
     console.log("Código de verificação:", verificationCode);
 
     try {
-        const response = await fetch("https//app.stocfy.com//verificar_codigo", {
+        const response = await fetch("https//app.stocfy.com/verificar_codigo", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
