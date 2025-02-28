@@ -80,7 +80,9 @@ const Login = () => {
 
       if (response.ok) {
         console.log("Login bem-sucedido:", data);
-        sessionStorage.setItem("auth", "true"); // Salva a autenticação
+        sessionStorage.setItem("auth", "true");
+        sessionStorage.setItem("token", data.token);
+        sessionStorage.setItem("id_cliente", data.id_cliente);
         navigate("/listagem");
     } else {
         console.log("Erro no login");

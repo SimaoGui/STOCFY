@@ -1,114 +1,134 @@
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 40px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-areas:
-      "header header"
-      "nome imagem"
-      "descricao descricao"
-      "sku estoque"
-      "preco preco"
-      "submit submit";
-    grid-gap: 20px;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .header {
-    grid-area: header;
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .form {
-    display: contents;
-  }
-  
-  .nome {
-    grid-area: nome;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .imagem {
-    grid-area: imagem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .descricao {
-    grid-area: descricao;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sku {
-    grid-area: sku;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .estoque {
-    grid-area: estoque;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .preco {
-    grid-area: preco;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .submit {
-    grid-area: submit;
-    text-align: center;
-  }
-  
-  /* Estilização dos labels e inputs */
-  label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  input,
-  textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
-  /* Botão de submissão */
-  button {
-    padding: 12px 30px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nome categoria"
+    "codigo_barras codigo_barras"
+    "descricao descricao"
+    "preco quantidade"
+    "sku unidade"
+    "tp_unidade tp_unidade"
+    "submit submit";
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  font-size: 2rem;
+  color: #004f59;
+}
+
+.form {
+  display: contents;
+}
+
+.nome {
+  grid-area: nome;
+  display: flex;
+  flex-direction: column;
+}
+
+.categoria {
+  grid-area: categoria;
+  display: flex;
+  flex-direction: column;
+}
+
+.codigo_barras {
+  grid-area: codigo_barras;
+  display: flex;
+  flex-direction: column;
+}
+
+.descricao {
+  grid-area: descricao;
+  display: flex;
+  flex-direction: column;
+}
+
+.preco {
+  grid-area: preco;
+  display: flex;
+  flex-direction: column;
+}
+
+.quantidade {
+  grid-area: quantidade;
+  display: flex;
+  flex-direction: column;
+}
+
+.sku {
+  grid-area: sku;
+  display: flex;
+  flex-direction: column;
+}
+
+.tp_unidade {
+  grid-area: tp_unidade;
+  display: flex;
+  flex-direction: column;
+}
+
+.unidade {
+  grid-area: unidade;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  grid-area: submit;
+  text-align: center;
+}
+
+/* Estilização dos labels e inputs */
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #004f59;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #004f59;
+  box-shadow: 0 0 5px #00ff87;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botão de submissão */
+.addbtn {
+  padding: 12px 30px;
+  background-color: #004f59;
+  color: #f6f6f6;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addbtn:hover {
+  background-color: #00ff87;
+}
