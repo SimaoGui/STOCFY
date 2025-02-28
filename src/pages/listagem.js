@@ -190,10 +190,18 @@ const TabelaProdutos = () => {
                             {/* Aqui, os botões do dropdown também usam as funções globais */}
                             <button
                               className={styles.EditarBtn}
-                              onClick={() => handleEditarSelecionado(produto.id_item)}
+                              onClick={(e) => {
+                                e.preventDefault(); // Evita problemas caso esteja dentro de um form
+                                if (produto.id_item) {
+                                  handleEditarSelecionado(produto.id_item);
+                                } else {
+                                  console.error("ID do produto não encontrado!");
+                                }
+                              }}
                             >
                               Editar
                             </button>
+
                             <button
                               className={styles.RemoverBtn}
                               onClick={handleRemoverSelecionados}
