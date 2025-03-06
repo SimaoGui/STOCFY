@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { useNavigate } from 'react-router-dom';
-import styles from "../styles/global.css";
+import styles from "../styles/global.scss";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,15 +11,6 @@ const Login = () => {
   const [role, setRole] = useState(1);
   const navigate = useNavigate(); 
   const [active, setActive] = useState(false);
-  
-    const handleSignUpClick = () => {
-      setActive(true);
-    };
-  
-    const handleSignInClick = () => {
-      setActive(false);
-    };
-
   
   useEffect(() => {
     const wrapper = document.querySelector(".wrapper");
@@ -83,7 +74,7 @@ const Login = () => {
         sessionStorage.setItem("auth", "true");
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("id_cliente", data.id_cliente);
-        navigate("/listagem");
+        navigate("/homePage");
     } else {
         console.log("Erro no login");
     }

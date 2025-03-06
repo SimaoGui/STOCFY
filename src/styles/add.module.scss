@@ -33,6 +33,13 @@ body {
 
 .form {
   display: contents;
+
+  & input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #004f59;
+    box-shadow: 0 0 5px #00ff87;
+  }
 }
 
 .nome {
@@ -107,13 +114,6 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #004f59;
-  box-shadow: 0 0 5px #00ff87;
 }
 
 textarea {

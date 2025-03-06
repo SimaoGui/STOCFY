@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import styles from "../styles/add.module.css";
+import styles from "../styles/add.module.scss";
 
 const EditarProduto = () => {
   const navigate = useNavigate();
@@ -120,38 +120,130 @@ const EditarProduto = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Editar Produto</h1>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label>Nome</label>
-        <input type="text" name="nome" value={sendProduto.nome || ""} onChange={handleChange} required />
+    <h1 className={styles.header}>Editar Produto</h1>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.nome}>
+        <label htmlFor="nome">Nome</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          value={produto.nome}
+          onChange={handleChange}
+          placeholder="Digite o nome do produto"
+          required
+        />
+      </div>
 
-        <label>Categoria</label>
-        <input type="text" name="categoria" value={sendProduto.categoria || ""} onChange={handleChange} required />
+      <div className={styles.categoria}>
+        <label htmlFor="categoria">Categoria</label>
+        <input
+          type="text"
+          id="categoria"
+          name="categoria"
+          value={produto.categoria}
+          onChange={handleChange}
+          placeholder="Digite a categoria"
+          required
+        />
+      </div>
 
-        <label>Código de Barras</label>
-        <input type="text" name="codigo_barras" value={sendProduto.codigo_barras || ""} onChange={handleChange} required />
+      <div className={styles.codigo_barras}>
+        <label htmlFor="codigo_barras">Código de Barras</label>
+        <input
+          type="text"
+          id="codigo_barras"
+          name="codigo_barras"
+          value={produto.codigo_barras}
+          onChange={handleChange}
+          placeholder="Digite o código de barras"
+          required
+        />
+      </div>
 
-        <label>Descrição</label>
-        <textarea name="descricao" value={sendProduto.descricao || ""} onChange={handleChange} required />
+      <div className={styles.descricao}>
+        <label htmlFor="descricao">Descrição</label>
+        <textarea
+          id="descricao"
+          name="descricao"
+          value={produto.descricao}
+          onChange={handleChange}
+          placeholder="Descreva o produto"
+          required
+        ></textarea>
+      </div>
 
-        <label>Preço</label>
-        <input type="number" step="0.01" name="preco" value={sendProduto.preco || ""} onChange={handleChange} required />
+      <div className={styles.preco}>
+        <label htmlFor="preco">Preço</label>
+        <input
+          type="number"
+          step="0.01"
+          id="preco"
+          name="preco"
+          value={sendProduto.preco}
+          onChange={handleChange}
+          placeholder="Digite o preço"
+          required
+        />
+      </div>
 
-        <label>Quantidade</label>
-        <input type="number" name="quantidade" value={sendProduto.quantidade || ""} onChange={handleChange} required />
+      <div className={styles.quantidade}>
+        <label htmlFor="quantidade">Quantidade</label>
+        <input
+          type="number"
+          id="quantidade"
+          name="quantidade"
+          value={sendProduto.quantidade}
+          onChange={handleChange}
+          placeholder="Digite a quantidade"
+          required
+        />
+      </div>
 
-        <label>SKU</label>
-        <input type="text" name="sku" value={sendProduto.sku || ""} onChange={handleChange} required />
+      <div className={styles.sku}>
+        <label htmlFor="sku">SKU</label>
+        <input
+          type="text"
+          id="sku"
+          name="sku"
+          value={produto.sku}
+          onChange={handleChange}
+          placeholder="Digite o SKU"
+          required
+        />
+      </div>
 
-        <label>Tipo Unidade</label>
-        <input type="text" name="tp_unidade" value={sendProduto.tp_unidade || ""} onChange={handleChange} required />
+      <div className={styles.unidade}>
+        <label htmlFor="unidade">Unidade</label>
+        <input
+          type="number"
+          id="unidade"
+          name="unidade"
+          value={produto.unidade}
+          onChange={handleChange}
+          placeholder="Digite a unidade"
+          required
+        />
+      </div>
 
-        <label>Unidade</label>
-        <input type="text" name="unidade" value={sendProduto.unidade || ""} onChange={handleChange} required />
+      <div className={styles.tp_unidade}>
+        <label htmlFor="tp_unidade">Tipo de Unidade</label>
+        <input
+          type="text"
+          id="tp_unidade"
+          name="tp_unidade"
+          value={produto.tp_unidade}
+          onChange={handleChange}
+          placeholder="Digite o tipo de unidade"
+          required
+        />
+      </div>
 
-        <button type="submit" className={styles.addbtn}>Salvar Alterações</button>
-      </form>
-    </div>
+      <div className={styles.submit}>
+        <button className={styles.addbtn} type="submit">Editar Produto</button>
+      </div>
+    </form>
+  </div>
   );
 };
 
