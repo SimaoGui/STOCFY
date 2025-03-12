@@ -128,7 +128,7 @@ const EditarProduto = () => {
           type="text"
           id="nome"
           name="nome"
-          value={produto.nome}
+          value={sendProduto.nome}
           onChange={handleChange}
           placeholder="Digite o nome do produto"
           required
@@ -141,7 +141,7 @@ const EditarProduto = () => {
           type="text"
           id="categoria"
           name="categoria"
-          value={produto.categoria}
+          value={sendProduto.categoria}
           onChange={handleChange}
           placeholder="Digite a categoria"
           required
@@ -154,7 +154,7 @@ const EditarProduto = () => {
           type="text"
           id="codigo_barras"
           name="codigo_barras"
-          value={produto.codigo_barras}
+          value={sendProduto.codigo_barras}
           onChange={handleChange}
           placeholder="Digite o código de barras"
           required
@@ -166,7 +166,7 @@ const EditarProduto = () => {
         <textarea
           id="descricao"
           name="descricao"
-          value={produto.descricao}
+          value={sendProduto.descricao}
           onChange={handleChange}
           placeholder="Descreva o produto"
           required
@@ -206,7 +206,7 @@ const EditarProduto = () => {
           type="text"
           id="sku"
           name="sku"
-          value={produto.sku}
+          value={sendProduto.sku}
           onChange={handleChange}
           placeholder="Digite o SKU"
           required
@@ -219,7 +219,7 @@ const EditarProduto = () => {
           type="number"
           id="unidade"
           name="unidade"
-          value={produto.unidade}
+          value={sendProduto.unidade}
           onChange={handleChange}
           placeholder="Digite a unidade"
           required
@@ -232,7 +232,7 @@ const EditarProduto = () => {
           type="text"
           id="tp_unidade"
           name="tp_unidade"
-          value={produto.tp_unidade}
+          value={sendProduto.tp_unidade}
           onChange={handleChange}
           placeholder="Digite o tipo de unidade"
           required
