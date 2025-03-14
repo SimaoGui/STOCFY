@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/list.module.scss";
 
-
 const TabelaProdutos = () => {
   const navigate = useNavigate();
   const [produtos, setProdutos] = useState([]);
@@ -71,8 +70,17 @@ const TabelaProdutos = () => {
     navigate("/editarProduto", { state: { id_item } });
   };
 
+  const handleFiltroChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Filtrando produtos com base no searchTerm
+  const produtosFiltrados = produtos.filter((produto) =>
+    produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   useEffect(() => {
-    const handleLister = async (e) => {
+    const handleLister = async () => {
       const id_cliente = sessionStorage.getItem("id_cliente") || "";
 
       try {
@@ -123,12 +131,11 @@ const TabelaProdutos = () => {
               placeholder="Pesquisar Produtos"
               className={styles.searchInput}
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleFiltroChange}
             />
             <button className={styles.addButton} onClick={adicionarProduto}>
               + Adicionar Produto
             </button>
-
           </div>
 
           <div className={styles.tableDiv}>
@@ -152,8 +159,8 @@ const TabelaProdutos = () => {
                 </tr>
               </thead>
               <tbody>
-                {produtos.length > 0 ? (
-                  produtos.map((produto) => (
+                {produtosFiltrados.length > 0 ? (
+                  produtosFiltrados.map((produto) => (
                     <tr key={produto.id_item}>
                       <td>
                         <input
@@ -183,7 +190,6 @@ const TabelaProdutos = () => {
                         </button>
                         {menuAberto === produto.id_item && (
                           <div className={styles.dropdownMenu}>
-                            {/* Aqui, os botões do dropdown também usam as funções globais */}
                             <button
                               className={styles.EditarBtn}
                               onClick={(e) => {
